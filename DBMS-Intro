@@ -1,0 +1,49 @@
+******************** Let's Learn about Database Management System ********************
+
+1. What is DMBS?
+        DBMS stands for Database Management System and is widely used to store and manage organizational data. DBMS ensure data consistency, persistence, and integrity.
+
+Advantages:
+
+        Data consistency:
+            Ensures the data is consistent throughout transactions and data operations.
+
+        Data Independence:
+            Abstracts the details about the data storage from the applications using the data.
+
+        Data integrity and security:
+            Rules and regulations are enforced to maintain data accuracy and    prevent unauthorized access to the database.
+
+        Effiency and concurrency: 
+            Allows multiple users to access the database simultaneously and data efficiency is ensured by algorithms for quering and retrival of data.
+
+        Backup and restore: 
+            Mechanisms help in data retrival in case of failures.
+
+
+Types of databases:
+        
+        Relational Database Management System (RDBMS):
+            Storage: Uses tables to store data and manage relationships between the data.
+            Examples: MySQL, PostgreSQL, Oracle Database.
+
+        NoSQL DBMS:
+            Storage: Unstructed or semi-structured data, and flexible schemas.
+            Examples: MongoDB, Cassandra, Redis and Neo4j.
+
+        Object-oriented DBMS:
+            Storage: Stores data as Objects, similar to object oriented programming.
+            Examples: db4o, ObjectDB
+
+        Heirarchial DBMS:
+            Storage: Organizes data in a tree like structure with parent-child relationships.
+            Examples: IBM Information Management System (IMS)
+
+        Network DBMS:
+            Storage: Uses a graph structure to represent many to many relationships between data.
+            Examples: Integrated Data Store (IDS)
+
+Most popular databases:
+
+        Oracle, MySQL, Microsoft SQL Server, PostgreSQL, MongoDB, Redis.
+            
