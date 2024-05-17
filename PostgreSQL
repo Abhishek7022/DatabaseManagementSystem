@@ -1,0 +1,142 @@
+***** Basic commands used in PostgreSQL: *****
+
+---------------------------------------------------------------------------------------------
+
+1. Connect to a database as a user:
+        psql -U username -d database_name
+    Eg: psql -U dbuser -d employee
+
+---------------------------------------------------------------------------------------------
+
+* \conninfo        - Shows current user and current database.
+
+* \du              - Displays all users(roles) and their permissions(attributes).
+
+* \l  or \list     - Check list of all databases.
+
+* \dt              - Check all the available tables in the database.
+
+* \dv, \di, \df    - Shows all available views, indexes and functions in the current database.
+
+* \d               - Gives list of all available resources, such as tables, views, indexes and functions.
+
+* \dn              - List of all schemas.
+
+* \dp              - Display access privileges(permissions) to tables, views and sequences.
+
+* \c database_name - Switch to a database.
+
+* \q               - Quit the PostgreSQL CLI.
+
+---------------------------------------------------------------------------------------------
+
+2. Creating users and granting them privileges:
+        CREATE USER username WITH PASSWORD 'password';
+    Eg: CREATE USER dbuser1 WITH PASSWORKD 'dbuser1';
+
+Granting Privileges:
+        GRANT ALL PRIVILEGES ON DATABASE database_name TO username;
+    Eg: GRANT ALL PRIVILEGES ON DATABASE employee TO dbuser1;
+
+Granting Specific Privileges to a user for a table:
+        GRANT SELECT, INSERT, UPDATE, DELETE ON table_name TO username;
+    Eg: GRANT SELECT, INSERT, UPDATE, UPDATE ON employee TO dbuse1;
+
+Granting Specific Privileges on schemas for a user:
+        GRANT ALL PRIVILEGES ON SCHEMA schema_name TO username;
+    Eg: GRANT ALL PRIVILEGES ON SCHEMA public TO dbuser1;
+
+Revoke privileges for users:
+        REVOKE privilege_name ON object_name FROM username;
+    Eg: REVOKE SELECT ON employee FROM dbuser1;
+
+Delete a user:
+        DROP USER username;
+    Eg: DROP USER dbuser1;
+
+---------------------------------------------------------------------------------------------
+
+3. Create a database:
+
+Creating a database:
+        CREATE DATABASE database_name;
+    Eg: CREATE DATABASE employee;
+
+---------------------------------------------------------------------------------------------
+
+4. Creating a table named employee:
+
+        CREATE TABLE employee (
+            ID SERIAL PRIMARY KEY,
+            Name VARCHAR(255) NOT NULL,
+            Age NUMERIC NOT NULL,
+            Role VARCHAR(50) NOT NULL,
+            Active BOOLEAN NOT NULL,
+            Department VARCHAR(50) NOT NULL
+        );
+
+---------------------------------------------------------------------------------------------
+
+5. Insert data into the table:
+
+        INSERT INTO employee
+        VALUES
+            (1, 'Satomi', 29, 'Administrator', TRUE, 'Finance'),
+            (2, 'Ayanakoji', 17, 'CEO', TRUE, 'Administration'),
+            (3, 'Karuizawa', 16, 'Personal Assistant', TRUE, 'Administration'),
+            (4, 'Saitama', 25, 'Security Head', TRUE, 'Security'),
+            (5, 'Fubuki', 27, 'Regional Manager', FALSE, 'Legal');
+
+---------------------------------------------------------------------------------------------
+
+SELECT * FROM employee;
+
+         id |   name    | age |        role        | active |   department
+        ----+-----------+-----+--------------------+--------+----------------
+          1 | Satomi    |  29 | Administrator      | t      | Finance
+          2 | Ayanakoji |  17 | CEO                | t      | Administration
+          3 | Karuizawa |  16 | Personal Assistant | t      | Administration
+          5 | Fubuki    |  27 | Regional HEAD      | f      | Legal
+          4 | Saitama   |  25 | Security Head      | f      | Security
+
+---------------------------------------------------------------------------------------------
+
+6. Update data into the table employee:
+
+         UPDATE employee
+         SET Role = 'Regional HEAD'
+         WHERE Name = 'Fubuki';
+
+         UPDATE employee
+         SET Active = FALSE
+         WHERE Age = 25;
+
+---------------------------------------------------------------------------------------------
+
+7. Alter data into the table employee:
+
+        ALTER TABLE employee
+        ADD COLUMN Salary NUMERIC DEFAULT 0.0;
+
+        ALTER TABLE employee
+        DROP COLUMN Salary;
+
+---------------------------------------------------------------------------------------------
+
+SELECT * FROM employee;
+
+        id |   name    | age |        role        | active |   department   | salary 
+        ----+-----------+-----+--------------------+--------+----------------+--------
+        1 | Satomi    |  29 | Administrator      | t      | Finance        |    0.0
+        2 | Ayanakoji |  17 | CEO                | t      | Administration |    0.0
+        3 | Karuizawa |  16 | Personal Assistant | t      | Administration |    0.0
+        5 | Fubuki    |  27 | Regional HEAD      | f      | Legal          |    0.0
+        4 | Saitama   |  25 | Security Head      | f      | Security       |    0.0
+
+---------------------------------------------------------------------------------------------
+
+7. Delete table employee:
+
+        DROP TABLE employee;
+
+---------------------------------------------------------------------------------------------
