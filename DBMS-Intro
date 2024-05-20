@@ -12,7 +12,7 @@ Advantages:
             Abstracts the details about the data storage from the applications using the data.
 
         Data integrity and security:
-            Rules and regulations are enforced to maintain data accuracy and    prevent unauthorized access to the database.
+            Rules and regulations are enforced to maintain data accuracy and prevent unauthorized access to the database.
 
         Effiency and concurrency: 
             Allows multiple users to access the database simultaneously and data efficiency is ensured by algorithms for quering and retrival of data.
@@ -46,4 +46,41 @@ Types of databases:
 Most popular databases:
 
         Oracle, MySQL, Microsoft SQL Server, PostgreSQL, MongoDB, Redis.
-            
+
+
+*****Important categories in SQL:
+     1. Data Definition Language(DDL):
+            DDL commands are used to define and modify the structure of database objects.
+            These commands include:
+                 CREATE
+                 ALTER
+                 DROP
+                 TRUNCATE
+
+
+     2. Data Manipulation Language(DML):
+            DML commands are used to manipulate data within existing database objects.
+            The commands to manipulate data:
+                 SELECT
+                 INSERT
+                 UPDATE
+                 DELETE
+
+     3. Data Control Language(DCL):
+            DCL commands are used to control access to data in the database.
+            Some DCL commands are:
+                 GRANT
+                 REVOKE
+
+     4. Transaction Control Language(TCL):
+            TCL commands manage transactions within the database.
+            Some useful TCL commands:
+                 COMMIT
+                 ROLLBACK
+                 SAVEPOINT
+                 SET
+
+     5. Data Query Language(DQL):
+            DQL is used to query the database and retrieve data. It is considered to be a subset of DML.
+            Command used for querying database:
+                 SELECT
